@@ -1,31 +1,20 @@
 package main
 
-import "fmt"
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+	matrix := make([][]uint8, dy)
+	for i := range matrix {
+		matrix[i] = make([]uint8, dx)
+	}
+	for i := range matrix {
+		for j := range matrix[i] {
+			matrix[i][j] = uint8((i ^ j) / 2)
+		}
+	}
+	return matrix
+}
 
 func main() {
-	var s []int
-	printSlice(s)
-
-	s = append(s, 0)
-	printSlice(s)
-
-	s = append(s, 1)
-	printSlice(s)
-
-	s = append(s, 2, 3, 4)
-	printSlice(s)
-
+	pic.Show(Pic)
 }
-func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
-}
-
-/*
-Добавление в срез
-Go предоставляет встроенную функцию append. Документация встроенного пакета описывает функцию append.
-func append(s []T, vs ...T) []T
-Первый параметр s функции append — это срез типа T, а остальные — это значения типа T, которые нужно добавить в срез.
-Возвращаемое значение функции append — это срез, содержащий все элементы исходного среза плюс предоставленные значения.
-Если базовый (скрытый) массив среза s слишком мал, чтобы вместить все заданные значения, будет выделен
-массив большего размера. Возвращаемый срез будет указывать на этот новый выделенный массив.
-*/
