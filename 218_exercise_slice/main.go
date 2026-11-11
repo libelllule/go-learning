@@ -4,12 +4,10 @@ import "golang.org/x/tour/pic"
 
 func Pic(dx, dy int) [][]uint8 {
 	matrix := make([][]uint8, dy)
-	for i := range matrix {
-		matrix[i] = make([]uint8, dx)
-	}
-	for i := range matrix {
-		for j := range matrix[i] {
-			matrix[i][j] = uint8((i ^ j) / 2)
+	for y := range matrix {
+		matrix[y] = make([]uint8, dx)
+		for x := range matrix[y] {
+			matrix[y][x] = uint8((x + y) / 2)
 		}
 	}
 	return matrix
