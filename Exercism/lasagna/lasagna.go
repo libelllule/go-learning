@@ -1,6 +1,7 @@
 package lasagna
 
 var OvenTime int = 40
+
 // TODO: define the 'OvenTime' constant
 
 // RemainingOvenTime returns the remaining minutes based on the `actual` minutes already in the oven.

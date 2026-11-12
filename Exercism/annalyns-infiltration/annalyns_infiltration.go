@@ -2,7 +2,7 @@ package annalyn
 
 // CanFastAttack может быть выполнена только тогда, когда рыцарь спит.
 func CanFastAttack(knightIsAwake bool) bool {
-	if knightIsAwake{
+	if knightIsAwake {
 		return false
 	}
 	return true
@@ -10,7 +10,7 @@ func CanFastAttack(knightIsAwake bool) bool {
 
 // CanSpy может быть выполнена, если хотя бы один из персонажей бодрствует.
 func CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake bool) bool {
-	if (knightIsAwake || archerIsAwake || prisonerIsAwake){
+	if knightIsAwake || archerIsAwake || prisonerIsAwake {
 		return true
 	}
 	return false
@@ -18,7 +18,7 @@ func CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake bool) bool {
 
 // CanSignalPrisoner может быть выполнена, если пленник бодрствует, а лучник спит.
 func CanSignalPrisoner(archerIsAwake, prisonerIsAwake bool) bool {
-	if (prisonerIsAwake && archerIsAwake != true){
+	if prisonerIsAwake && archerIsAwake != true {
 		return true
 	}
 	return false
@@ -27,9 +27,9 @@ func CanSignalPrisoner(archerIsAwake, prisonerIsAwake bool) bool {
 // CanFreePrisoner может быть выполнена, если пленник бодрствует, а остальные два персонажа спят,
 // либо если собака Аннален с ней, а лучник спит.
 func CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent bool) bool {
-	if petDogIsPresent && archerIsAwake!=true {
+	if petDogIsPresent && archerIsAwake != true {
 		return true
-	} else if (knightIsAwake!=true && archerIsAwake != true && prisonerIsAwake){
+	} else if knightIsAwake != true && archerIsAwake != true && prisonerIsAwake {
 		return true
 	}
 	return false
