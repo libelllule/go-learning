@@ -22,3 +22,11 @@ func main() {
 		fmt.Println(err)
 	}
 }
+
+/*
+Тип error — это встроенный интерфейс, похожий на fmt.Stringer:
+type error interface {
+	Error() string
+}
+пакет fmt проверяет наличие интерфейса error при печати значений.
+*/
