@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Index[T comparable](s []T, x T) int {
+func Index[T comparable](s []T, x T) int { // параметрр типа в []
 	for i, v := range s {
 		if v == x {
 			return i
